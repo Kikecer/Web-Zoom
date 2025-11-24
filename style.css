@@ -1,60 +1,70 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; 
 }
 
-body{
-    height: 150lvh;
+body {
+    height: 150vh; 
+    overflow-x: hidden; 
 }
 
-.back, .font{
+.back, .font {
     position: fixed;
     top: 0;
-    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .front{
+    position: fixed;
+    left: 60px;
+    width: 80%;
+    height: 80%;
+}
+
+.front {
     z-index: 1;
-    aspect-ratio: 16/9;
-    background: url(./foreground.png) no-repeat;
-    background-size: contain;
-    background-position: 100% 50%;
+    aspect-ratio: 1/1; 
+    background: url('./image.png') no-repeat;
+    background-size: 50%;
+    background-position: center;
     animation: ft-zoom 1s linear;
     animation-timeline: scroll(y);
-}
 
-.back{
+.back {
     z-index: -2;
     aspect-ratio: 16/9;
-    background: url(./mountains.jpg) no-repeat;
+    background: url('./image copy.png') no-repeat;
     background-size: cover;
-    background-position: 100%;
+    background-position: center;
     animation: bk-zoom 1s linear;
     animation-timeline: scroll(y);
-}
-
-.font{
+.font {
     z-index: 1;
 }
 
 @keyframes ft-zoom {
     from {
-        filter: blur(5px);
-        transform: translate(50px) scale(1.3);
-    }
-    to{
         filter: blur(0px);
-        transform: translate(50px) scale(1.8);
+        transform: translateX(50px) scale(1.8);
+    }
+    to {
+        filter: blur(5px);
+        transform: translateX(50px) scale(1.3);
     }
 }
 
 @keyframes bk-zoom {
-    from{
-        filter: blur(0px);
-        transform: translate(50px) scale(1.8);
-    }
-    to{
+    from {
         filter: blur(5px);
-        transform: translate(50px) scale(1.3);
+        transform: translateX(50px) scale(1.3);
     }
+    to {
+        filter: blur(0px); 
+        transform: translateX(50px) scale(1.8);
+    }
+}
+} 
 }
